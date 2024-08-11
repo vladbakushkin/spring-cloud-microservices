@@ -42,3 +42,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Lombok Config ###
+lombok.config
+
+### Mail Properties for RabbitMQ ###
+mail-props.properties

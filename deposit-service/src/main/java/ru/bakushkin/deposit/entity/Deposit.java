@@ -1,4 +1,4 @@
-package ru.bakushkin.bill.entity;
+package ru.bakushkin.deposit.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,20 +18,18 @@ import java.time.OffsetDateTime;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Bill {
+public class Deposit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long billId;
-
-    private Long accountId;
+    private Long depositId;
 
     private BigDecimal amount;
 
-    private Boolean isDefault;
+    private Long billId;
 
     @CreationTimestamp
     private OffsetDateTime createdDate;
 
-    private Boolean overdraftEnabled;
+    private String email;
 }

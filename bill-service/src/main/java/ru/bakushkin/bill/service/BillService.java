@@ -9,6 +9,8 @@ import ru.bakushkin.bill.exception.BillNotFoundException;
 import ru.bakushkin.bill.mapper.BillMapper;
 import ru.bakushkin.bill.repository.BillRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BillService {
@@ -46,6 +48,11 @@ public class BillService {
 
     public void deleteBill(Long billId) {
         billRepository.deleteById(billId);
+    }
+
+    public List<BillResponseDto> getBillsByAccountId(Long accountId) {
+        List<Bill> bills = billRepository.getBillsByAccountId(accountId);
+        return billMapper.toBillResponseDtoList(bills);
     }
 
     private Bill findBillById(Long billId) {

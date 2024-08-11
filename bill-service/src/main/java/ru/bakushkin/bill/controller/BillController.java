@@ -7,6 +7,8 @@ import ru.bakushkin.bill.controller.dto.BillRequestDto;
 import ru.bakushkin.bill.controller.dto.BillResponseDto;
 import ru.bakushkin.bill.service.BillService;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class BillController {
@@ -34,5 +36,10 @@ public class BillController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBill(@PathVariable Long billId) {
         billService.deleteBill(billId);
+    }
+
+    @GetMapping("/account/{accountId}")
+    public List<BillResponseDto> getBillsByAccountId(@PathVariable Long accountId) {
+        return billService.getBillsByAccountId(accountId);
     }
 }
